@@ -8,6 +8,8 @@ public class GameWindow extends JFrame {
 
     GameCanvas gameCanvas;
     private long lastTime = 0;
+    int vx = 3;
+    int vy = 3;
 
     public GameWindow() {
         this.setSize(400, 600);
@@ -43,18 +45,16 @@ public class GameWindow extends JFrame {
             long currentTime = System.nanoTime();
             if (currentTime - this.lastTime >= 17_000_000) {
                 this.gameCanvas.renderAll();
-                int vx = 3;
-                int vy = 3;
                 gameCanvas.posE2Y += 3;
                 gameCanvas.posEnemyX += vx;
                 gameCanvas.posEnemyY += vy;
-                if(gameCanvas.posEnemyX >= 380) {
+                if(gameCanvas.posEnemyX >= 360) {
                     vx = - 3;
                 }
                 else if(gameCanvas.posEnemyX <= 0) {
                     vx = 3;
                 }
-                if(gameCanvas.posEnemyY >= 580) {
+                if(gameCanvas.posEnemyY >= 530) {
                     vy = - 3;
                 }
                 if(gameCanvas.posEnemyY <= 0) {
